@@ -1,4 +1,9 @@
 <x-layout>
+    @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
     <h1>I nostri prodotti</h1>
     <main class="container">
         <section class="row">
@@ -6,7 +11,7 @@
             <article class="col-12 col-md-3">
                
                 <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="{{Storage::url($product->img)}}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{$product->name}}</h5>
                         <p class="lead">{{$product->description}}</p>

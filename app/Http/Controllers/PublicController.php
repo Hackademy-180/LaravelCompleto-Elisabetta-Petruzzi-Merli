@@ -13,28 +13,17 @@ class PublicController extends Controller
         return view ("welcome");
     }
 
-    public function products_index(){
-         $products = Product::all();
+    // public function products_index(){
+    //      $products = Product::all();
         
-        return view ("products.index", compact("products") );
-    }
+    //     return view ("products.index", compact("products") );
+    // }
 
-    public function products_create(){
+    // public function products_create(){
        
-        return view ("products.create" );
-    }
+    //     return view ("products.create" );
+    // }
 
-    public function product_submit(Request $request){
 
-       
-
-       Product::create([
-        "name"=> $request->name,
-        "description"=> $request->description,
-        "price"=> $request->price,
-        "img"=> $request->file("img")->store("image", "public"),
-       ]);
-
-        return redirect(route("home"))->with("status", "Prodotto caricato correttamente!");
-    }
+    
 }

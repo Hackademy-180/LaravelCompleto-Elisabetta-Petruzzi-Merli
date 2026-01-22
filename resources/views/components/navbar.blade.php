@@ -12,11 +12,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route("products_index")}}">Prodotti</a>
                 </li>
-               
+               @auth
                 <li class="nav-item">
                     <a class="nav-link" href="{{route("products_create")}}">Crea Prodotto</a>
                 </li>
-              
+                @endauth
                 @auth
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

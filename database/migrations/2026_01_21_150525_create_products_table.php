@@ -16,7 +16,14 @@ return new class extends Migration
             $table->string("name");
             $table->text("description");
             $table->integer("price");
+
+            // Foreign Key
+            $table->unsignedBigInteger("user_id");
+            $table->foreign('user_id')->references('id')->on('users'); 
+
             $table->timestamps();
+
+            
         });
     }
 
@@ -25,6 +32,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+      
         Schema::dropIfExists('products');
     }
 };
