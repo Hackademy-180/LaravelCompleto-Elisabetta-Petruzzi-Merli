@@ -13,16 +13,7 @@ class PublicController extends Controller
         return view ("welcome");
     }
 
-    // public function products_index(){
-    //      $products = Product::all();
-        
-    //     return view ("products.index", compact("products") );
-    // }
-
-    // public function products_create(){
-       
-    //     return view ("products.create" );
-    // }
+    
 
 
     
