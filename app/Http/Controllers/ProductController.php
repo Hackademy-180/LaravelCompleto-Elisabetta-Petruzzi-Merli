@@ -2,13 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
-
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Auth;
 
-class ProductController extends Controller
+class ProductController extends Controller implements HasMiddleware
 {
+
+    public static function middleware()
+    {
+        return [
+            new Middleware("auth", except: ["products_index"]),
+
+        ];
+    }
 
     public function products_index(){
          $products = Product::all();
@@ -17,9 +27,12 @@ class ProductController extends Controller
     }
 
     public function products_create(){
+        $products=Product::all();
+        return view ("products.create", compact("products") );
        
-        return view ("products.create" );
+        
     }
+
 
     public function product_submit(Request $request){
         Product::create([

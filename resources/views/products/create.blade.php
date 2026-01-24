@@ -1,7 +1,7 @@
 <x-layout>
-    <h1>Crea un nuovo Prodotto </h1>
+    <h1 class="text-center mt-5">Crea un nuovo Prodotto </h1>
     <main class="container">
-        <section class="row align-items-center">
+        <section class="mt-5 row justify-content-center align-items-center">
             <article class="col-12 col-md-8">
                 <form method="POST" action="{{route("product_submit")}}" enctype="multipart/form-data">
                     @csrf
@@ -14,16 +14,16 @@
                         <label for="description" class="form-label">Descrizione Prodotto</label>
                         <textarea class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
                     </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="price" class="form-label">Prezzo Prodotto</label>
-                        <input type="number" class="form-control" id="price" aria-describedby="emailHelp" name="price">
-                    </div>
-                    <div class="mb-3">
-                        <label for="img" class="form-label">Immagine Prodotto</label>
-                        <input type="file" class="form-control" id="img" aria-describedby="emailHelp" name="img">
-                    </div>
-                  
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Prezzo Prodotto</label>
+                    <input type="number" class="form-control" id="price" aria-describedby="emailHelp" name="price">
+                </div>
+                <div class="mb-3">
+                    <label for="img" class="form-label">Immagine Prodotto</label>
+                    <input type="file" class="form-control" id="img" aria-describedby="emailHelp" name="img">
+                </div>
+              
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </article>

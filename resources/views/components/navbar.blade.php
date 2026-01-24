@@ -12,7 +12,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route("products_index")}}">Prodotti</a>
                 </li>
-               @auth
+                @auth
                 <li class="nav-item">
                     <a class="nav-link" href="{{route("products_create")}}">Crea Prodotto</a>
                 </li>
