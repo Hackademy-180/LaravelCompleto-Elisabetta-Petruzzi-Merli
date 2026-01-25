@@ -11,22 +11,29 @@
                         
                     </div>
                     <div class="mb-3">
-                        <label for="description" class="form-label">Descrizione Prodotto</label>
-                        <textarea class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
+                            <label for="description" class="form-label">Descrizione Prodotto</label>
+                            <textarea class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <label for="price" class="form-label">Prezzo Prodotto</label>
-                    <input type="number" class="form-control" id="price" aria-describedby="emailHelp" name="price">
-                </div>
-                <div class="mb-3">
-                    <label for="img" class="form-label">Immagine Prodotto</label>
-                    <input type="file" class="form-control" id="img" aria-describedby="emailHelp" name="img">
-                </div>
-              
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </article>
-        </section>
-    </main>
+                   
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Prezzo Prodotto</label>
+                        <input type="number" class="form-control" id="price" aria-describedby="emailHelp" name="price">
+                    </div>
+                    <div class="mb-3">
+                        <label for="img" class="form-label">Immagine Prodotto</label>
+                        <input type="file" class="form-control" id="img" aria-describedby="emailHelp" name="img">
+                    </div>
+                    <div class="mb-3">
+                        <p>Categorie:</p>
+                        @foreach($categories as $category)
+                        <input type="checkbox" class="form-check-input" id="{{$category->id}}" value="{{$category->id}}" name="categories[]">
+                        <label class="form-check-label" for="{{$category->id}}">{{$category->name}}</label>
+                        @endforeach
+                    </div>
+                
+                     <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </article>
+    </section>
+</main>
 </x-layout>

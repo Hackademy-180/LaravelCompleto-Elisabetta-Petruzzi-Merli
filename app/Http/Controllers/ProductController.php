@@ -24,17 +24,22 @@ class ProductController extends Controller implements HasMiddleware
          $products = Product::all();
         
         return view ("products.index", compact("products") );
+
+
     }
 
     public function products_create(){
         $products=Product::all();
-        return view ("products.create", compact("products") );
+        $categories=Category::all();
+        return view ("products.create", compact("categories") );
        
         
     }
 
 
     public function product_submit(Request $request){
+
+
         Product::create([
 
         "name"=> $request->name,
@@ -46,9 +51,13 @@ class ProductController extends Controller implements HasMiddleware
         ]);
 
         return redirect(route("products_index"))->with("status", "Prodotto salvato correttamente");
+
+        $product->categorie()->attach($request->categories);
+            return redirect(route("products_index"));
     }
 
     public function show(Product $product){
+       
         return view("products.show", compact("product"));
     }
 

@@ -13,6 +13,13 @@
                 <p>Descrizione:{{$product->description}}</p>
                 
                 <p>{{$product->price}} €</p>
+                <p>Categorie:</p>
+                <ul>
+                    @foreach($product->categories as $category)
+                    <li>{{$category->name}}</li>
+                    @endforeach   
+                </ul>
+
                 @auth
                     @if(Auth::user()->id == $product->user->id)
                     
